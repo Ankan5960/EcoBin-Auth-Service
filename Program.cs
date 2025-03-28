@@ -12,6 +12,8 @@ builder.Services.ConfigureDBConnection(builder.Configuration);
 builder.Services.AddControllers();
 builder.Services.InjectRepository();
 builder.Services.InjectService();
+builder.Services.InjectJwtHelper();
+
 
 var app = builder.Build();
 

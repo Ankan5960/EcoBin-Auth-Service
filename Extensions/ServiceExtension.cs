@@ -1,5 +1,6 @@
 using System.Data;
 using Auth_Api.Extensions.Helpers;
+using Auth_Api.Helpers;
 using Auth_Api.Repositories;
 using Auth_Api.Repositories.Contracts;
 using Auth_Api.Services;
@@ -27,8 +28,8 @@ public static class ServiceExtension
     public static void InjectService(this IServiceCollection services) =>
         services.AddScoped<IServiceManager, ServiceManager>();
 
-    // public static void InjectJwtHelper(this IServiceCollection services) =>
-    //     services.AddSingleton<IJwtHelper, JwtHelper>();
+    public static void InjectJwtHelper(this IServiceCollection services) =>
+        services.AddSingleton<IJwtHelper, JwtHelper>();
 
     public static void ConfigureDapperMapping(this IServiceCollection services) =>
         DapperHelper.SetSnakeCaseMapping();
