@@ -20,4 +20,11 @@ public class AuthController : ControllerBase
         var userId = await _serviceManager.AuthService.SignupAsync(signupRequest);
         return Ok(new { UserId = userId });
     }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginRequestDto loginRequest)
+    {
+        var result = await _serviceManager.AuthService.LoginAsync(loginRequest);
+        return Ok(result);
+    }
 }
