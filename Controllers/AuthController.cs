@@ -3,6 +3,7 @@ using Auth_Api.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Auth_Api.Controllers;
+
 [ApiController]
 [Route("user-auth/[controller]")]
 public class AuthController : ControllerBase

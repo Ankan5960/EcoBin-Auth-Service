@@ -7,6 +7,7 @@ using Auth_Api.Repositories.Contracts;
 using Auth_Api.Services.Contracts;
 
 namespace Auth_Api.Services;
+
 public class AuthService : IAuthService
 {
     private readonly IRepositoryManager _repositoryManager;
@@ -78,7 +79,7 @@ public class AuthService : IAuthService
         await _repositoryManager.UserRoleRepository.AddUserRoleAsync(userRole);
         return createdUserId;
     }
-    
+
     public async Task<AuthDto> LoginAsync(LoginRequestDto loginRequest)
     {
         UserEntity? user = await _repositoryManager.UserRepository.GetUserByEmailAsync(loginRequest.Email);
@@ -127,7 +128,7 @@ public class AuthService : IAuthService
 
         return authDto;
     }
-    
+
     private string HashPassword(string password)
     {
         return BCrypt.Net.BCrypt.HashPassword(password);
