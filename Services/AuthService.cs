@@ -3,8 +3,10 @@ using Auth_Api.Extensions.Exceptions;
 using Auth_Api.Extensions.Helpers;
 using Auth_Api.Model.DTOs;
 using Auth_Api.Model.Entities;
+using Auth_Api.Model.Enums;
 using Auth_Api.Repositories.Contracts;
 using Auth_Api.Services.Contracts;
+using User_Auth_API.Extensions.Helpers;
 
 namespace Auth_Api.Services;
 
@@ -13,7 +15,6 @@ public class AuthService : IAuthService
     private readonly IRepositoryManager _repositoryManager;
     private readonly IJwtHelper _jwtHelper;
     private readonly int accessTokenExpireTimeInMinute = 180;
-    //private readonly int refreshTokenExpireTimeInMinute = 360;
 
     public AuthService(IRepositoryManager repositoryManager, IJwtHelper jwtHelper)
     {
@@ -46,7 +47,7 @@ public class AuthService : IAuthService
         }
         else
         {
-            userRoleData = await _repositoryManager.RoleRepository.GetRoleRepoByNameAsync("User");
+            userRoleData = await _repositoryManager.RoleRepository.GetRoleRepoByNameAsync(Roles.User.GetRoleName());
             ArgumentNullException.ThrowIfNull(userRoleData);
         }
 

@@ -61,6 +61,8 @@ public static class ServiceExtension
         {
             options.AddPolicy("AdminOnly", policy =>
             policy.RequireClaim("roleName", "Admin"));
+            options.AddPolicy("CollectorOrHigher", policy =>
+            policy.RequireClaim("roleName", "Admin", "Collector"));
         });
 
     public static void ConfigureSwaggerGen(this IServiceCollection services) =>
