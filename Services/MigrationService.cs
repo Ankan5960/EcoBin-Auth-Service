@@ -1,12 +1,12 @@
-using Auth_Api.Extensions.Script;
-using Auth_Api.Model.DTOs.Response;
-using Auth_Api.Model.Entities;
-using Auth_Api.Model.Enums;
-using Auth_Api.Repositories.Contracts;
-using Auth_Api.Services.Contracts;
+using EcoBin_Auth_Service.Extensions.Script;
+using EcoBin_Auth_Service.Model.DTOs.Response;
+using EcoBin_Auth_Service.Model.Entities;
+using EcoBin_Auth_Service.Model.Enums;
+using EcoBin_Auth_Service.Repositories.Contracts;
+using EcoBin_Auth_Service.Services.Contracts;
 using User_Auth_API.Extensions.Helpers;
 
-namespace Auth_Api.Services;
+namespace EcoBin_Auth_Service.Services;
 
 public class MigrationService : IMigrationService
 {

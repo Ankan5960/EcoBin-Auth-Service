@@ -1,6 +1,7 @@
-using Auth_Api.Model.Entities;
+using EcoBin_Auth_Service.Model.Entities;
 
-namespace Auth_Api.Repositories.Contracts;
+namespace EcoBin_Auth_Service.Repositories.Contracts;
+
 public interface IUserRepository : IRepositoryBase<UserEntity>
 {
     Task<Guid> AddUserAsync(UserEntity user);

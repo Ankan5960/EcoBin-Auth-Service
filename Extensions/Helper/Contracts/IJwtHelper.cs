@@ -1,6 +1,6 @@
-using Auth_Api.Model.DTOs;
+using EcoBin_Auth_Service.Model.DTOs;
 
-namespace Auth_Api.Extensions.Helpers;
+namespace EcoBin_Auth_Service.Extensions.Helpers;
 
 public interface IJwtHelper
 {

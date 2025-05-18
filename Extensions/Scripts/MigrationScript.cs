@@ -1,4 +1,4 @@
-namespace Auth_Api.Extensions.Script;
+namespace EcoBin_Auth_Service.Extensions.Script;
 
 public class MigrationScript
 {

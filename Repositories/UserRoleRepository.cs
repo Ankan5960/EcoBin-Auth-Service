@@ -1,9 +1,10 @@
 using System.Data;
-using Auth_Api.Model.Entities;
-using Auth_Api.Repositories;
-using Auth_Api.Repositories.Contracts;
+using EcoBin_Auth_Service.Model.Entities;
+using EcoBin_Auth_Service.Repositories;
+using EcoBin_Auth_Service.Repositories.Contracts;
 
 namespace User_Auth_API.Repositories;
+
 public class UserRoleRepository : RepositoryBase<UserRoleEntity>, IUserRoleRepository
 {
     public UserRoleRepository(IDbConnection dbConnection) : base(dbConnection) { }

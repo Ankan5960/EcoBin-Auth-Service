@@ -1,4 +1,4 @@
-namespace Auth_Api.Model.Enums;
+namespace EcoBin_Auth_Service.Model.Enums;
 
 public enum Roles
 {

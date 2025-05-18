@@ -1,8 +1,8 @@
 using System.Reflection;
 using Dapper;
-using Auth_Api.Extensions.Mapper;
+using EcoBin_Auth_Service.Extensions.Mapper;
 
-namespace Auth_Api.Extensions.Helpers;
+namespace EcoBin_Auth_Service.Extensions.Helpers;
 
 public static class DapperHelper
 {

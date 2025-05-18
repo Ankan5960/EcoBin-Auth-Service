@@ -1,8 +1,8 @@
 using System.Data;
-using Auth_Api.Model.Entities;
-using Auth_Api.Repositories.Contracts;
+using EcoBin_Auth_Service.Model.Entities;
+using EcoBin_Auth_Service.Repositories.Contracts;
 
-namespace Auth_Api.Repositories;
+namespace EcoBin_Auth_Service.Repositories;
 
 public class RoleRepository : RepositoryBase<RoleEntity>, IRoleRepository
 {

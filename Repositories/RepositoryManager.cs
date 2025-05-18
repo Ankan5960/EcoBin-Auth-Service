@@ -1,8 +1,8 @@
 using System.Data;
-using Auth_Api.Repositories.Contracts;
+using EcoBin_Auth_Service.Repositories.Contracts;
 using User_Auth_API.Repositories;
 
-namespace Auth_Api.Repositories;
+namespace EcoBin_Auth_Service.Repositories;
 
 public class RepositoryManager : IRepositoryManager
 {
@@ -16,9 +16,9 @@ public class RepositoryManager : IRepositoryManager
     {
         _dbConnection = dbConnection;
         _roleRepo = new Lazy<IRoleRepository>(() => new RoleRepository(_dbConnection));
-        _registrationKeyRepo = new Lazy<IRegistrationKeyRepository>(()=> new RegistrationKeyRepository(_dbConnection));
-        _userRepo = new Lazy<IUserRepository>(()=> new UserRepository(_dbConnection));   
-        _userRoleRepo = new Lazy<IUserRoleRepository>(()=> new UserRoleRepository(_dbConnection));
+        _registrationKeyRepo = new Lazy<IRegistrationKeyRepository>(() => new RegistrationKeyRepository(_dbConnection));
+        _userRepo = new Lazy<IUserRepository>(() => new UserRepository(_dbConnection));
+        _userRoleRepo = new Lazy<IUserRoleRepository>(() => new UserRoleRepository(_dbConnection));
     }
 
     public IRoleRepository RoleRepository => _roleRepo.Value;

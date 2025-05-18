@@ -1,4 +1,5 @@
-namespace Auth_Api.Model.DTOs;
+namespace EcoBin_Auth_Service.Model.DTOs;
+
 public class AuthDto
 {
     public Guid UserId { get; set; }
@@ -17,5 +18,5 @@ public class AuthDto
 
     public string AccessToken { get; set; } = string.Empty;
 
-   // public string RefreshToken { get; set; } = string.Empty;
+    // public string RefreshToken { get; set; } = string.Empty;
 }

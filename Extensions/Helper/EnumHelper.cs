@@ -1,4 +1,4 @@
-using Auth_Api.Model.Enums;
+using EcoBin_Auth_Service.Model.Enums;
 
 namespace User_Auth_API.Extensions.Helpers;
 

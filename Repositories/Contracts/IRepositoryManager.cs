@@ -1,4 +1,4 @@
-namespace Auth_Api.Repositories.Contracts;
+namespace EcoBin_Auth_Service.Repositories.Contracts;
 
 public interface IRepositoryManager
 {
@@ -6,5 +6,5 @@ public interface IRepositoryManager
     IUserRepository UserRepository { get; }
     IUserRoleRepository UserRoleRepository { get; }
     IRegistrationKeyRepository RegistrationKeyRepository { get; }
-    
+
 }

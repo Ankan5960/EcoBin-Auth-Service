@@ -1,17 +1,17 @@
 using System.Data;
 using System.Text;
-using Auth_Api.Extensions.Helpers;
-using Auth_Api.Helpers;
-using Auth_Api.Repositories;
-using Auth_Api.Repositories.Contracts;
-using Auth_Api.Services;
-using Auth_Api.Services.Contracts;
+using EcoBin_Auth_Service.Extensions.Helpers;
+using EcoBin_Auth_Service.Helpers;
+using EcoBin_Auth_Service.Repositories;
+using EcoBin_Auth_Service.Repositories.Contracts;
+using EcoBin_Auth_Service.Services;
+using EcoBin_Auth_Service.Services.Contracts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Npgsql;
 
-namespace Auth_Api.Extensions;
+namespace EcoBin_Auth_Service.Extensions;
 
 public static class ServiceExtension
 {
