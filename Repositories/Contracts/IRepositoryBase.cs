@@ -1,6 +1,6 @@
 using System.Data;
 
-namespace Auth_Api.Repositories.Contracts;
+namespace EcoBin_Auth_Service.Repositories.Contracts;
 
 public interface IRepositoryBase<T>
 {

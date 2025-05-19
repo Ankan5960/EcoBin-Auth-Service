@@ -1,9 +1,9 @@
-using Auth_Api.Extensions.Exceptions;
-using Auth_Api.Services.Contracts;
+using EcoBin_Auth_Service.Extensions.Exceptions;
+using EcoBin_Auth_Service.Services.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Auth_Api.Controllers;
+namespace EcoBin_Auth_Service.Controllers;
 
 [ApiController]
 [Route("user-auth/[controller]")]

@@ -1,4 +1,4 @@
-namespace Auth_Api.Model.DTOs.Response;
+namespace EcoBin_Auth_Service.Model.DTOs.Response;
 
 public class MigrationResponseDto
 {

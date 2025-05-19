@@ -1,7 +1,7 @@
-using Auth_Api.DTOs.Requests;
-using Auth_Api.Model.DTOs;
+using EcoBin_Auth_Service.DTOs.Requests;
+using EcoBin_Auth_Service.Model.DTOs;
 
-namespace Auth_Api.Services.Contracts;
+namespace EcoBin_Auth_Service.Services.Contracts;
 
 public interface IAuthService
 {

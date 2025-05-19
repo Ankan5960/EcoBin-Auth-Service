@@ -1,8 +1,8 @@
-using Auth_Api.Extensions.Helpers;
-using Auth_Api.Repositories.Contracts;
-using Auth_Api.Services.Contracts;
+using EcoBin_Auth_Service.Extensions.Helpers;
+using EcoBin_Auth_Service.Repositories.Contracts;
+using EcoBin_Auth_Service.Services.Contracts;
 
-namespace Auth_Api.Services;
+namespace EcoBin_Auth_Service.Services;
 
 public class ServiceManager : IServiceManager
 {

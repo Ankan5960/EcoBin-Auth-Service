@@ -3,10 +3,11 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
-using Auth_Api.Extensions.Helpers;
-using Auth_Api.Model.DTOs;
+using EcoBin_Auth_Service.Extensions.Helpers;
+using EcoBin_Auth_Service.Model.DTOs;
 
-namespace Auth_Api.Helpers;
+namespace EcoBin_Auth_Service.Helpers;
+
 public class JwtHelper : IJwtHelper
 {
     private readonly IConfiguration _configuration;

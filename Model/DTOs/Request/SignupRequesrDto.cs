@@ -1,4 +1,5 @@
-namespace Auth_Api.DTOs.Requests;
+namespace EcoBin_Auth_Service.DTOs.Requests;
+
 public class SignupRequestDto
 {
     public string Email { get; set; } = string.Empty;

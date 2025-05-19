@@ -1,4 +1,4 @@
-namespace Auth_Api.Services.Contracts;
+namespace EcoBin_Auth_Service.Services.Contracts;
 
 public interface IServiceManager
 {

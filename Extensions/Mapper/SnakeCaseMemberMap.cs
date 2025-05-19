@@ -1,7 +1,8 @@
 using System.Reflection;
 using Dapper;
 
-namespace Auth_Api.Extensions.Mapper;
+namespace EcoBin_Auth_Service.Extensions.Mapper;
+
 public class SnakeCaseMemberMap : SqlMapper.IMemberMap
 {
     private readonly MemberInfo? _memberInfo;

@@ -1,10 +1,10 @@
-using Auth_Api.Extensions.Exceptions;
-using Auth_Api.Model.DTOs.Response;
-using Auth_Api.Model.Entities;
-using Auth_Api.Repositories.Contracts;
-using Auth_Api.Services.Contracts;
+using EcoBin_Auth_Service.Extensions.Exceptions;
+using EcoBin_Auth_Service.Model.DTOs.Response;
+using EcoBin_Auth_Service.Model.Entities;
+using EcoBin_Auth_Service.Repositories.Contracts;
+using EcoBin_Auth_Service.Services.Contracts;
 
-namespace Auth_Api.Services;
+namespace EcoBin_Auth_Service.Services;
 
 public class RegistrationKeysService : IRegistrationKeysService
 {

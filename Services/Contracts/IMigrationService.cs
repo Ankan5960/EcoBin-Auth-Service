@@ -1,6 +1,6 @@
-using Auth_Api.Model.DTOs.Response;
+using EcoBin_Auth_Service.Model.DTOs.Response;
 
-namespace Auth_Api.Services.Contracts;
+namespace EcoBin_Auth_Service.Services.Contracts;
 
 public interface IMigrationService
 {

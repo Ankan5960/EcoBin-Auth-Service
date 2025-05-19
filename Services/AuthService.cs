@@ -1,14 +1,13 @@
-using Auth_Api.DTOs.Requests;
-using Auth_Api.Extensions.Exceptions;
-using Auth_Api.Extensions.Helpers;
-using Auth_Api.Model.DTOs;
-using Auth_Api.Model.Entities;
-using Auth_Api.Model.Enums;
-using Auth_Api.Repositories.Contracts;
-using Auth_Api.Services.Contracts;
-using User_Auth_API.Extensions.Helpers;
+using EcoBin_Auth_Service.DTOs.Requests;
+using EcoBin_Auth_Service.Extensions.Exceptions;
+using EcoBin_Auth_Service.Extensions.Helpers;
+using EcoBin_Auth_Service.Model.DTOs;
+using EcoBin_Auth_Service.Model.Entities;
+using EcoBin_Auth_Service.Model.Enums;
+using EcoBin_Auth_Service.Repositories.Contracts;
+using EcoBin_Auth_Service.Services.Contracts;
 
-namespace Auth_Api.Services;
+namespace EcoBin_Auth_Service.Services;
 
 public class AuthService : IAuthService
 {

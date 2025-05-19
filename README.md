@@ -1,1 +1,1 @@
-# Auth-Api
+# EcoBin-Auth-Service

@@ -1,8 +1,8 @@
-using Auth_Api.DTOs.Requests;
-using Auth_Api.Services.Contracts;
+using EcoBin_Auth_Service.DTOs.Requests;
+using EcoBin_Auth_Service.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Auth_Api.Controllers;
+namespace EcoBin_Auth_Service.Controllers;
 
 [ApiController]
 [Route("user-auth/[controller]")]

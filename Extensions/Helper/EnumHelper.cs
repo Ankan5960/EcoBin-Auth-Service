@@ -1,6 +1,6 @@
-using Auth_Api.Model.Enums;
+using EcoBin_Auth_Service.Model.Enums;
 
-namespace User_Auth_API.Extensions.Helpers;
+namespace EcoBin_Auth_Service.Extensions.Helpers;
 
 public static class EnumHelper
 {

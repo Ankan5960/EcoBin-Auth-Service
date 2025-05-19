@@ -1,8 +1,9 @@
 using System.Data;
 using Dapper;
-using Auth_Api.Repositories.Contracts;
+using EcoBin_Auth_Service.Repositories.Contracts;
 
-namespace Auth_Api.Repositories;
+namespace EcoBin_Auth_Service.Repositories;
+
 public class RepositoryBase<T> : IRepositoryBase<T> where T : class
 {
     private readonly IDbConnection _dbConnection;

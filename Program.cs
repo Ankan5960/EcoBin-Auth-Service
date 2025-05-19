@@ -1,4 +1,4 @@
-using Auth_Api.Extensions;
+using EcoBin_Auth_Service.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

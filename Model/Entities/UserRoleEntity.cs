@@ -1,4 +1,5 @@
-namespace Auth_Api.Model.Entities;
+namespace EcoBin_Auth_Service.Model.Entities;
+
 public class UserRoleEntity
 {
     public Guid UserId { get; set; }

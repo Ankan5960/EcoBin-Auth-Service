@@ -1,4 +1,4 @@
-namespace Auth_Api.Extensions.Exceptions;
+namespace EcoBin_Auth_Service.Extensions.Exceptions;
 
 public class BadRequestException : Exception
 {

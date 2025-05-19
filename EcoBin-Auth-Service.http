@@ -1,0 +1,6 @@
+@EcoBin_Auth_Service_HostAddress = http://localhost:5117
+
+GET {{EcoBin_Auth_Service_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

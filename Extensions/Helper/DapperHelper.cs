@@ -1,15 +1,15 @@
 using System.Reflection;
 using Dapper;
-using Auth_Api.Extensions.Mapper;
+using EcoBin_Auth_Service.Extensions.Mapper;
 
-namespace Auth_Api.Extensions.Helpers;
+namespace EcoBin_Auth_Service.Extensions.Helpers;
 
 public static class DapperHelper
 {
     public static void SetSnakeCaseMapping()
     {
         foreach (var type in Assembly.GetExecutingAssembly().GetTypes()
-            .Where(t => t.IsClass && t.Namespace == "Auth_Api.Model.Entities"))
+            .Where(t => t.IsClass && t.Namespace == "EcoBin_Auth_Service.Model.Entities"))
         {
             try
             {
