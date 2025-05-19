@@ -3,7 +3,7 @@ using EcoBin_Auth_Service.Model.Entities;
 using EcoBin_Auth_Service.Repositories;
 using EcoBin_Auth_Service.Repositories.Contracts;
 
-namespace User_Auth_API.Repositories;
+namespace EcoBin_Auth_Service.Repositories;
 
 public class UserRoleRepository : RepositoryBase<UserRoleEntity>, IUserRoleRepository
 {

@@ -1,6 +1,6 @@
-@Auth_Api_HostAddress = http://localhost:5117
+@EcoBin_Auth_Service_HostAddress = http://localhost:5117
 
-GET {{Auth_Api_HostAddress}}/weatherforecast/
+GET {{EcoBin_Auth_Service_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

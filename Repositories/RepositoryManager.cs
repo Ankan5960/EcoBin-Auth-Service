@@ -1,6 +1,6 @@
 using System.Data;
 using EcoBin_Auth_Service.Repositories.Contracts;
-using User_Auth_API.Repositories;
+using EcoBin_Auth_Service.Repositories;
 
 namespace EcoBin_Auth_Service.Repositories;
 
