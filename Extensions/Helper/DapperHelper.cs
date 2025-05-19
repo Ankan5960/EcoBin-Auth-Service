@@ -9,7 +9,7 @@ public static class DapperHelper
     public static void SetSnakeCaseMapping()
     {
         foreach (var type in Assembly.GetExecutingAssembly().GetTypes()
-            .Where(t => t.IsClass && t.Namespace == "Auth_Api.Model.Entities"))
+            .Where(t => t.IsClass && t.Namespace == "EcoBin_Auth_Service.Model.Entities"))
         {
             try
             {
