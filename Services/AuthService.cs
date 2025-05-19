@@ -6,7 +6,6 @@ using EcoBin_Auth_Service.Model.Entities;
 using EcoBin_Auth_Service.Model.Enums;
 using EcoBin_Auth_Service.Repositories.Contracts;
 using EcoBin_Auth_Service.Services.Contracts;
-using User_Auth_API.Extensions.Helpers;
 
 namespace EcoBin_Auth_Service.Services;
 
