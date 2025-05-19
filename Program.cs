@@ -23,12 +23,7 @@ app.UseAuthorization();
 app.MapControllers();
 app.UseCors("CorsPolicy");
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.Run();
