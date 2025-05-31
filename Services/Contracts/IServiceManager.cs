@@ -5,4 +5,5 @@ public interface IServiceManager
     IAuthService AuthService { get; }
     IRegistrationKeysService RegistrationKeysService { get; }
     IMigrationService MigrationService { get; }
+    IRoleIdService RoleIdService { get; }
 }
