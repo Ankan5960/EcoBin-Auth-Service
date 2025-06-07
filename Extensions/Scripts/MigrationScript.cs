@@ -13,7 +13,7 @@ public class MigrationScript
             role_name VARCHAR(50) UNIQUE NOT NULL
     );
 
-CREATE TABLE IF NOT EXISTS RegistrationKeys(
+    CREATE TABLE IF NOT EXISTS RegistrationKeys(
         key_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
         registration_key VARCHAR(255) UNIQUE NOT NULL,  
         role_id UUID NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS RegistrationKeys(
         FOREIGN KEY(role_id) REFERENCES Roles(role_id) ON DELETE CASCADE
     );
 
-CREATE TABLE IF NOT EXISTS ""User"" (
+    CREATE TABLE IF NOT EXISTS ""User"" (
         user_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
         user_name VARCHAR(100) UNIQUE NOT NULL,
         email VARCHAR(255) UNIQUE NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS ""User"" (
      );
 
     INSERT INTO Roles(role_name) VALUES
-         ('Admin'),
+        ('Admin'),
         ('Collector'),
         ('User'),
         ('Guest')
