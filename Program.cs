@@ -1,4 +1,5 @@
 using EcoBin_Auth_Service.Extensions;
+using EcoBin_Auth_Service.Extensions.Exceptions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.ConfigureExceptionHandler(app.Logger);
 app.UseCors("CorsPolicy");
 
 app.UseSwagger();
