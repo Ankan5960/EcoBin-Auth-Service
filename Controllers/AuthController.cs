@@ -1,4 +1,5 @@
 using EcoBin_Auth_Service.DTOs.Requests;
+using EcoBin_Auth_Service.Model.DTOs.Requests;
 using EcoBin_Auth_Service.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,6 +27,13 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Login([FromBody] LoginRequestDto loginRequest)
     {
         var result = await _serviceManager.AuthService.LoginAsync(loginRequest);
+        return Ok(result);
+    }
+
+    [HttpPost("refresh-token")]
+    public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequestDto request)
+    {
+        var result = await _serviceManager.AuthService.RefreshAccessTokenAsync(request);
         return Ok(result);
     }
 }

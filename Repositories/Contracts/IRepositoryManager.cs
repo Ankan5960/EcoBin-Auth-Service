@@ -6,5 +6,5 @@ public interface IRepositoryManager
     IUserRepository UserRepository { get; }
     IUserRoleRepository UserRoleRepository { get; }
     IRegistrationKeyRepository RegistrationKeyRepository { get; }
-
+    IRefreshTokenRepository RefreshTokenRepository { get; }
 }
