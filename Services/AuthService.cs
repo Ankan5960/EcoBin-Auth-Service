@@ -62,6 +62,7 @@ public class AuthService : IAuthService
             LastName = signupRequest.LastName,
             PasswordHash = HashPassword(signupRequest.Password),
             RegistrationKeyId = registrationKeyData == null ? null : registrationKeyData.KeyId,
+            AreaOfService = registrationKeyData == null ? null : registrationKeyData.AreaOfService
         };
 
         Guid createdUserId = await _repositoryManager.UserRepository.AddUserAsync(user);
@@ -105,7 +106,8 @@ public class AuthService : IAuthService
             FirstName = user.FirstName,
             LastName = user.LastName,
             RoleId = role.RoleId,
-            RoleName = role.RoleName
+            RoleName = role.RoleName,
+            AreaOfService = user.AreaOfService
         };
 
         authDto.AccessToken = _jwtHelper.GenerateToken(authDto, accessTokenExpireTimeInMinute);
@@ -150,7 +152,8 @@ public class AuthService : IAuthService
             FirstName = user.FirstName,
             LastName = user.LastName,
             RoleId = role.RoleId,
-            RoleName = role.RoleName
+            RoleName = role.RoleName,
+            AreaOfService = user.AreaOfService
         };
 
         await _repositoryManager.RefreshTokenRepository.InvalidateRefreshTokenAsync(existingToken.TokenId);
