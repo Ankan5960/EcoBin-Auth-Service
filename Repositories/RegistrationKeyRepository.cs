@@ -10,9 +10,22 @@ public class RegistrationKeyRepository : RepositoryBase<RegistrationKeyEntity>, 
 
     public async Task<Guid> AddRegistrationKeyAsync(RegistrationKeyEntity registrationKey)
     {
-        var query = "INSERT INTO RegistrationKeys (registration_key, role_id, is_used, expires_at, delete_at) " +
-                    "VALUES (@RegistrationKey, @RoleId, @IsUsed, @ExpiresAt, @DeleteAt) RETURNING key_id";
-        var parameters = new { registrationKey.RegistrationKey, registrationKey.RoleId, registrationKey.IsUsed, registrationKey.ExpiresAt, registrationKey.DeleteAt };
+        var query = @"INSERT INTO RegistrationKeys 
+                    (registration_key, role_id, area_of_service, is_used, expires_at, delete_at) 
+                  VALUES 
+                    (@RegistrationKey, @RoleId, @AreaOfService, @IsUsed, @ExpiresAt, @DeleteAt) 
+                  RETURNING key_id";
+
+        var parameters = new
+        {
+            registrationKey.RegistrationKey,
+            registrationKey.RoleId,
+            registrationKey.AreaOfService,
+            registrationKey.IsUsed,
+            registrationKey.ExpiresAt,
+            registrationKey.DeleteAt
+        };
+
         Guid newKeyId = await ExecuteScalarAsync(query, parameters);
         return newKeyId;
     }
@@ -48,8 +61,8 @@ public class RegistrationKeyRepository : RepositoryBase<RegistrationKeyEntity>, 
 
     public async Task UpdateRegistrationKeyAsync(RegistrationKeyEntity registrationKey)
     {
-        var query = "UPDATE RegistrationKeys SET registration_key = @RegistrationKey, role_id = @RoleId, " +
+        var query = "UPDATE RegistrationKeys SET registration_key = @RegistrationKey, role_id = @RoleId, area_of_service = @AreaOfService, " +
                     "is_used = @IsUsed, expires_at = @ExpiresAt, delete_at = @DeleteAt WHERE key_id = @KeyId";
-        await ExecuteAsync(query, new { registrationKey.RegistrationKey, registrationKey.RoleId, registrationKey.IsUsed, registrationKey.ExpiresAt, registrationKey.DeleteAt, registrationKey.KeyId });
+        await ExecuteAsync(query, new { registrationKey.RegistrationKey, registrationKey.RoleId, registrationKey.AreaOfService, registrationKey.IsUsed, registrationKey.ExpiresAt, registrationKey.DeleteAt, registrationKey.KeyId });
     }
 }
