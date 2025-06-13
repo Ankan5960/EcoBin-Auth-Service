@@ -1,3 +1,4 @@
+using EcoBin_Auth_Service.Model.DTOs.Requests;
 using EcoBin_Auth_Service.Repositories.Contracts;
 using EcoBin_Auth_Service.Services.Contracts;
 
@@ -12,7 +13,7 @@ public class LogoutService : ILogoutService
         _repositoryManager = repositoryManager;
     }
 
-    public async Task<bool> LogoutAsync(Guid userId, string refreshToken)
+    public async Task<LogoutResponseDto> LogoutAsync(Guid userId, string refreshToken)
     {
         var token = await _repositoryManager.RefreshTokenRepository.GetRefreshTokenAsync(refreshToken);
 
@@ -26,7 +27,11 @@ public class LogoutService : ILogoutService
 
         await _repositoryManager.RefreshTokenRepository.UpdateRefreshTokenAsync(token);
 
-        return true;
+        return new LogoutResponseDto
+        {
+            IsLoggedOut = true,
+            Message = "Logout successful."
+        };
     }
 
     public async Task GlobalLogoutAsync(Guid userId)

@@ -27,7 +27,7 @@ public class LogoutController : ControllerBase
             throw new UnauthorizedAccessException("Invalid user.");
         }
 
-        await _serviceManager.LogoutService.LogoutAsync(Guid.Parse(userId), request.RefreshToken);
-        return Ok("Logged out successfully.");
+        var res = await _serviceManager.LogoutService.LogoutAsync(Guid.Parse(userId), request.RefreshToken);
+        return Ok(res);
     }
 }
