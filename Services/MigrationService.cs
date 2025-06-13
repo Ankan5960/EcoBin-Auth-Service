@@ -1,5 +1,6 @@
 using EcoBin_Auth_Service.Extensions.Helpers;
 using EcoBin_Auth_Service.Extensions.Script;
+using EcoBin_Auth_Service.Model.DTOs.Requests;
 using EcoBin_Auth_Service.Model.DTOs.Response;
 using EcoBin_Auth_Service.Model.Entities;
 using EcoBin_Auth_Service.Model.Enums;
@@ -26,6 +27,7 @@ public class MigrationService : IMigrationService
         string? migrationKey = _configuration["Migrations:Key"];
         string? migrationUserEmail = _configuration["Migrations:Email"];
         string? migrationUserPassword = _configuration["Migrations:Password"];
+        string? areaOfService = _configuration["Migrations:AreaOfService"];
 
         if (migrationKey == null)
         {
@@ -37,7 +39,7 @@ public class MigrationService : IMigrationService
             throw new UnauthorizedAccessException("Invalid migration key");
         }
 
-        if (migrationUserEmail == null || migrationUserPassword == null)
+        if (migrationUserEmail == null || migrationUserPassword == null || areaOfService == null)
         {
             throw new InvalidOperationException("Migrations user Email or Migrations user Password is missing from configuration");
         }
@@ -51,7 +53,13 @@ public class MigrationService : IMigrationService
             throw new InvalidOperationException("Admin role is missing from database");
         }
 
-        RegistrationKeyResponseDto? registrationKeyData = await _serviceManager.RegistrationKeysService.CreateRegistrationKeyAsync(role.RoleId);
+        var resDto = new RegistrationKeyRequestDto
+        {
+            RoleId = role.RoleId,
+            AreaOfService = areaOfService,
+        };
+
+        RegistrationKeyResponseDto? registrationKeyData = await _serviceManager.RegistrationKeysService.CreateRegistrationKeyAsync(resDto);
         if (registrationKeyData == null)
         {
             throw new InvalidOperationException("Registration key could not be created");
@@ -65,7 +73,8 @@ public class MigrationService : IMigrationService
             LastName = "",
             PasswordHash = BCrypt.Net.BCrypt.HashPassword(migrationUserPassword),
             IsVerified = false,
-            RegistrationKeyId = registrationKeyData.KeyId
+            RegistrationKeyId = registrationKeyData.KeyId,
+            AreaOfService = registrationKeyData.AreaOfService,
         };
 
         Guid userId = await _repositoryManager.UserRepository.AddUserAsync(user);
@@ -87,6 +96,7 @@ public class MigrationService : IMigrationService
         {
             RegistrationKey = registrationKeyData.RegistrationKey,
             RoleId = role.RoleId,
+            AreaOfService = areaOfService,
             IsUsed = true,
             ExpiresAt = registrationKeyData.ExpiresAt,
             DeleteAt = registrationKeyData.DeleteAt,

@@ -1,4 +1,5 @@
 using EcoBin_Auth_Service.Extensions.Exceptions;
+using EcoBin_Auth_Service.Model.DTOs.Requests;
 using EcoBin_Auth_Service.Services.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,12 +19,12 @@ public class RegistrationKeyController : ControllerBase
 
     [Authorize(Policy = "AdminOnly")]
     [HttpPost("create")]
-    public async Task<IActionResult> CreateRegistrationKey([FromBody] Guid roleId)
+    public async Task<IActionResult> CreateRegistrationKey([FromBody] RegistrationKeyRequestDto registrationKeyRequestDto)
     {
-        if (roleId == Guid.Empty)
+        if (registrationKeyRequestDto.RoleId == Guid.Empty)
             throw new BadRequestException("Role ID is required.");
 
-        var key = await _serviceManager.RegistrationKeysService.CreateRegistrationKeyAsync(roleId);
+        var key = await _serviceManager.RegistrationKeysService.CreateRegistrationKeyAsync(registrationKeyRequestDto);
         return Ok(key);
     }
 }

@@ -3,6 +3,7 @@ namespace EcoBin_Auth_Service.Extensions.Script;
 public class MigrationScript
 {
     public static string MigrationScriptString { get; } = @"
+    DROP TABLE IF EXISTS RefreshTokens CASCADE;
     DROP TABLE IF EXISTS UserRoles CASCADE;
     DROP TABLE IF EXISTS ""User"" CASCADE;
     DROP TABLE IF EXISTS RegistrationKeys CASCADE;
@@ -17,7 +18,8 @@ public class MigrationScript
         key_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
         registration_key VARCHAR(255) UNIQUE NOT NULL,  
         role_id UUID NOT NULL,
-        is_used BOOLEAN DEFAULT FALSE,                  
+        area_of_service VARCHAR(255) DEFAULT NULL,
+        is_used BOOLEAN DEFAULT FALSE,
         expires_at TIMESTAMP,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         delete_at TIMESTAMP,
@@ -30,6 +32,7 @@ public class MigrationScript
         email VARCHAR(255) UNIQUE NOT NULL,
         first_name VARCHAR(255) NOT NULL,
         last_name VARCHAR(255),
+        area_of_service VARCHAR(255),
         password_hash VARCHAR(255) NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -40,12 +43,25 @@ public class MigrationScript
     );
 
     CREATE TABLE IF NOT EXISTS UserRoles(
-         user_id UUID NOT NULL,
-         role_id UUID NOT NULL,
-         PRIMARY KEY (user_id, role_id),
-         FOREIGN KEY (user_id) REFERENCES ""User"" (user_id) ON DELETE CASCADE,
-         FOREIGN KEY(role_id) REFERENCES Roles(role_id) ON DELETE CASCADE
-     );
+        user_id UUID NOT NULL,
+        role_id UUID NOT NULL,
+        PRIMARY KEY (user_id, role_id),
+        FOREIGN KEY (user_id) REFERENCES ""User"" (user_id) ON DELETE CASCADE,
+        FOREIGN KEY(role_id) REFERENCES Roles(role_id) ON DELETE CASCADE
+    );
+
+    CREATE TABLE IF NOT EXISTS RefreshTokens (
+        token_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        user_id UUID NOT NULL,
+        refresh_token VARCHAR(255) NOT NULL,
+        device_info VARCHAR(255),  
+        ip_address VARCHAR(50),    
+        expires_at TIMESTAMP NOT NULL,
+        is_revoked BOOLEAN DEFAULT FALSE,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES ""User"" (user_id) ON DELETE CASCADE
+    );
 
     INSERT INTO Roles(role_name) VALUES
         ('Admin'),

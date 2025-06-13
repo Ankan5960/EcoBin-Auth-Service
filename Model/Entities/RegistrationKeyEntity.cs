@@ -8,6 +8,8 @@ public class RegistrationKeyEntity
 
     public Guid RoleId { get; set; }
 
+    public string? AreaOfService { get; set; }
+
     public bool IsUsed { get; set; } = false;
 
     public DateTime ExpiresAt { get; set; }

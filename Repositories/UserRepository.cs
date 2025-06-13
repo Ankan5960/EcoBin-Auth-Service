@@ -11,9 +11,9 @@ public class UserRepository : RepositoryBase<UserEntity>, IUserRepository
 
     public async Task<Guid> AddUserAsync(UserEntity user)
     {
-        var query = "INSERT INTO \"User\" (user_name, email, first_name, last_name, password_hash, is_verified, registration_key_id) " +
-                    "VALUES (@Username, @Email, @Firstname, @Lastname, @PasswordHash, @IsVerified, @RegistrationKeyId) RETURNING user_id";
-        var parameters = new { user.UserName, user.Email, user.FirstName, user.LastName, user.PasswordHash, user.IsVerified, user.RegistrationKeyId };
+        var query = "INSERT INTO \"User\" (user_name, email, first_name, last_name, password_hash, is_verified, registration_key_id, area_of_service) " +
+                    "VALUES (@Username, @Email, @Firstname, @Lastname, @PasswordHash, @IsVerified, @RegistrationKeyId, @AreaOfService) RETURNING user_id";
+        var parameters = new { user.UserName, user.Email, user.FirstName, user.LastName, user.PasswordHash, user.IsVerified, user.RegistrationKeyId, user.AreaOfService };
         Guid newUserId = await ExecuteScalarAsync(query, parameters);
         return newUserId;
     }
@@ -46,8 +46,8 @@ public class UserRepository : RepositoryBase<UserEntity>, IUserRepository
     public async Task UpdateUserAsync(UserEntity user)
     {
         var query = "UPDATE \"User\" SET user_name = @UserName, email = @Email, first_name = @FirstName, " +
-                    "last_name = @LastName, password_hash = @PasswordHash, is_verified = @IsVerified, registration_key_id = @RegistrationKeyId, updated_at = @UpdatedAt " +
+                    "last_name = @LastName, password_hash = @PasswordHash, is_verified = @IsVerified, registration_key_id = @RegistrationKeyId, updated_at = @UpdatedAt, area_of_service = @AreaOfService " +
                     "WHERE user_id = @UserId";
-        await ExecuteAsync(query, new { user.UserName, user.Email, user.FirstName, user.LastName, user.PasswordHash, user.IsVerified, user.RegistrationKeyId, user.UserId, UpdatedAt = DateTime.Now });
+        await ExecuteAsync(query, new { user.UserName, user.Email, user.FirstName, user.LastName, user.PasswordHash, user.IsVerified, user.RegistrationKeyId, user.UserId, UpdatedAt = DateTime.Now, user.AreaOfService });
     }
 }

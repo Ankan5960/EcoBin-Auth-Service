@@ -36,7 +36,8 @@ public class JwtHelper : IJwtHelper
             new Claim("firstName", authDto.FirstName),
             new Claim("lastName", authDto.LastName ?? string.Empty),
             new Claim("roleId", authDto.RoleId.ToString()),
-            new Claim("roleName", authDto.RoleName)
+            new Claim("roleName", authDto.RoleName),
+            new Claim("areaOfService", authDto.AreaOfService ?? string.Empty)
         };
 
         var token = new JwtSecurityToken(
