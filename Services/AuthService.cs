@@ -14,8 +14,8 @@ public class AuthService : IAuthService
 {
     private readonly IRepositoryManager _repositoryManager;
     private readonly IJwtHelper _jwtHelper;
-    private readonly int accessTokenExpireTimeInMinute = 1;
-    private readonly int refreshTokenExpireTimeInMinute = 3;
+    private readonly int accessTokenExpireTimeInMinute = 3;
+    private readonly int refreshTokenExpireTimeInMinute = 120;
 
     public AuthService(IRepositoryManager repositoryManager, IJwtHelper jwtHelper)
     {
